@@ -1,13 +1,10 @@
-FROM ruby:latest
+FROM ruby:2.2
 MAINTAINER Dieter Provoost <dieter.provoost@marlon.be>
 
+# Use UTF-8 (see https://oncletom.io/2015/docker-encoding/)
+ENV LANG C.UTF-8
+
 RUN apt-get update
-
-RUN apt-get install locales
-RUN locale-gen en_US.UTF-8
-
-ENV LC_ALL en_US.UTF-8
-ENV LANG en_US.UTF-8
 
 RUN apt-get install -y npm
 RUN ln -s /usr/bin/nodejs /usr/bin/node
